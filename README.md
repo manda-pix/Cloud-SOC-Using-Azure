@@ -43,9 +43,9 @@ The following table shows the metrics measured in the insecure environment:
 | ------------------------ | -----
 | SecurityEvent            | 79470
 | Syslog                   | 3028
-| SecurityAlert            | 100
-| SecurityIncident         | 626
-| AzureNetworkAnalytics_CL | 843
+| SecurityAlert            | 209
+| SecurityIncident         | 826
+| AzureNetworkAnalytics_CL | 1043
 
 ## Attack Maps Before Hardening / Security Controls
 
@@ -58,8 +58,8 @@ The following table shows the metrics measured in the environment, but after sec
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 10778
+| Syslog                   | 50
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
