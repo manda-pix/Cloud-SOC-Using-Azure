@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment, applied some security controls to harden the environment, measured metrics, then showed the results below. The metrics we will show are:
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
@@ -21,7 +21,7 @@ The architecture of the mini honeynet in Azure consists of the following compone
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
+- Virtual Machines (2 windows)
 - Log Analytics Workspace
 - Azure Key Vault
 - Azure Storage Account
@@ -32,33 +32,30 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![Screenshot 2023-07-19 at 8 30 49 PM](https://github.com/manda-pix/Cloud-SOC-Using-Azure/assets/85501428/f7983831-68d5-4ab9-a7c1-dc24633f0965)
+!(https://i.imgur.com/nlNzVyA.png)
 <br>
-![Screenshot 2023-07-19 at 8 29 31 PM](https://github.com/manda-pix/Cloud-SOC-Using-Azure/assets/85501428/b9a0d41b-a457-498f-9bf9-361e4ffffcbb)<br>
+!(https://i.imgur.com/JXqRc19.png)<br>
 
 ## Metrics Before Hardening / Security Controls
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
+The following table shows the metrics measured in the insecure environment:
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 19470
+| SecurityEvent            | 79470
 | Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
+| SecurityAlert            | 100
+| SecurityIncident         | 626
 | AzureNetworkAnalytics_CL | 843
 
 ## Attack Maps Before Hardening / Security Controls
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+```All map queries actually returned no results due to no instances of malicious activity after hardening.```
 
 ## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+The following table shows the metrics measured in the environment, but after security controls were applied:
+
 
 | Metric                   | Count
 | ------------------------ | -----
@@ -72,4 +69,4 @@ Stop Time	2023-03-19 15:37
 
 In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated following the implementation of the security controls.
